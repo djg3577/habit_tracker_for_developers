@@ -1,1 +1,4 @@
-export default function Home() {}
+import React from "react";
+export default function Home() {
+  return <p>HELLO FROM HOME</p>;
+}

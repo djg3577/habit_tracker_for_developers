@@ -1,1 +1,4 @@
-export default function Signup() {}
+import React from "react";
+export default function Signup() {
+  return <p>HELLO FROM SIGNUP</p>;
+}

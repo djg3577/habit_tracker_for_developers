@@ -1,3 +1,4 @@
+import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import Signup from "../views/Signup";
 import Home from "../views/Home";
