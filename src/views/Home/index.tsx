@@ -1,4 +1,9 @@
 import React from "react";
+import { Logo } from "./Logo";
 export default function Home() {
-  return <p>HELLO FROM HOME</p>;
+  return (
+    <div className="font-sans">
+      <Logo />
+    </div>
+  );
 }

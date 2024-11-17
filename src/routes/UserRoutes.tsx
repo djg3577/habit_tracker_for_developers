@@ -1,5 +1,9 @@
-import React from 'react';
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import React from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
 import Signup from "../views/Signup";
 import Home from "../views/Home";
 import Activities from "../views/Activities";
@@ -12,8 +16,8 @@ function UserRoutes() {
         <Route path="/home" Component={Home} />
         <Route path="/activities" Component={Activities} />
         <Route path="*" Component={Home} />
-      </Route>
-    )
+      </Route>,
+    ),
   );
 }
 export default UserRoutes;
