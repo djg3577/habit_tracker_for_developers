@@ -1,4 +1,3 @@
-import React from "react";
 import striveLogo from "../../assets/STRIVELOGO.png";
 export const Logo = () => {
   return (

@@ -22,7 +22,6 @@ a {
   color: #ca0202;
   text-decoration: inherit;
 }
-
 a:hover {
   color: #6b0202;
 }
@@ -49,7 +48,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
 button:hover {
   border-color: #b40202;
 }

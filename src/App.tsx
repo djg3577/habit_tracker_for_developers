@@ -1,6 +1,7 @@
-import React from "react";
 import { RouterProvider } from "react-router-dom";
-import UserRoutes from "./src/routes/UserRoutes";
+import UserRoutes from "./routes/UserRoutes";
+import "./index.css";
+import "./App.css";
 function App() {
   return (
     <>
