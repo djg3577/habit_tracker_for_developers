@@ -1,19 +1,19 @@
 export const Leaderboard = () => {
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <table>
+    <div className="bg-white p-6 rounded-lg shadow-md mt-8">
+      <h2 className="text-2xl font-bold text-red-600 mb-4">Leaderboard</h2>
+      <table className="w-full">
         <thead>
-          <tr>
-            <th>Username</th>
-            <th>Score</th>
+          <tr className="text-center">
+            <th className="pb-2 ">Username</th>
+            <th className="pb-2 ">Score</th>
           </tr>
         </thead>
         <tbody>
           {/**WILL NEED TO COME BACK AND REPLACE WITH USERNAMES AND SCORE */}
           <tr>
-            <td>USERNAME</td>
-            <td>SCORE</td>
+            <td className="py-2 text-center">USERNAME</td>
+            <td className="py-2">SCORE</td>
           </tr>
         </tbody>
       </table>
