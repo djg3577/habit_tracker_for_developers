@@ -1,0 +1,39 @@
+.heatmap-container {
+  display: flex;
+  width: 700px;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.color-empty {
+  fill: #ebedf0;
+}
+
+.color-scale-1 {
+  fill: #b4f8b3;
+}
+
+.color-scale-2 {
+  fill: #78c35b;
+}
+
+.color-scale-3 {
+  fill: #428444;
+}
+
+.color-scale-4 {
+  fill: #1d3f24;
+}
+
+.color-scale-5 {
+  fill: #355828;
+}
+.color-scale-6 {
+  fill: #8b0000; /* Dark red */
+}
+
+.heatmap-container svg {
+  width: 100%;
+  height: 100%;
+}

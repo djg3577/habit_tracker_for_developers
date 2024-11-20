@@ -11,4 +11,10 @@ export default {
   createActivity: (activity: Activity) => {
     return axios.post("/activities", activity);
   },
+  getActivityTotals: () => {
+    return axios.get("/activities");
+  },
+  getActivityDates: async () => {
+    return axios.get("/activities/dates");
+  },
 };
