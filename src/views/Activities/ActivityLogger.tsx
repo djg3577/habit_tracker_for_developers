@@ -1,8 +1,24 @@
+import useActivityLogger from "@/hooks/useActivityLogger";
+
 export function ActivityLogger() {
+  const {
+    handleHoursChange,
+    handleMinutesChange,
+    handleSubmit,
+    setActivityName,
+    setDate,
+    activity_name,
+    date,
+    hours,
+    minutes,
+    hoursError,
+    minutesError,
+  } = useActivityLogger();
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-red-600 mb-4">Log Activity</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="ActivityName" className="block text-gray-700 font-bold mb-2">
             Activity Name
@@ -11,6 +27,8 @@ export function ActivityLogger() {
             type="text"
             className="w-full p-2 border rounded focus:ring-2 focus:ring-red-500 focus:border-transparent"
             id="ActivityName"
+            value={activity_name}
+            onChange={(e) => setActivityName(e.target.value)}
             placeholder="Enter activity type"
           />
         </div>
@@ -22,6 +40,8 @@ export function ActivityLogger() {
             type="date"
             className="w-full p-2 border rounded focus:ring-2 focus:ring-red-500 focus:border-transparent"
             id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -34,11 +54,13 @@ export function ActivityLogger() {
                   className="w-full pl-3 pr-10 py-2 border rounded focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   id="hours"
                   min="0"
-                  max="17"
+                  max="15"
+                  value={hours}
+                  onChange={handleHoursChange}
                 />
                 <span className="absolute right-3 top-2 text-gray-400">hrs</span>
               </div>
-              {"ERROR HANDLING HERE"}
+              {hoursError && <p className="text-red-500 text-sm mt-1">{hoursError}</p>}
             </div>
             <div className="flex-1 relative">
               <input
@@ -47,6 +69,8 @@ export function ActivityLogger() {
                 id="minutes"
                 min="0"
                 max="59"
+                value={minutes}
+                onChange={handleMinutesChange}
               />
               <span className="absolute right-3 top-2 text-gray-400">min</span>
             </div>
@@ -55,6 +79,7 @@ export function ActivityLogger() {
         <button
           type="submit"
           className="bg-red-600 text-white px-6 py-2 rounded-full font-bold hover:bg-red-700 w-full transition duration-300 ease-in-out transform hover:scale-105"
+          disabled={!!hoursError || !!minutesError}
         >
           Log Activity
         </button>
