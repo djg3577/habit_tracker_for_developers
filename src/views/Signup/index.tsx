@@ -1,3 +1,5 @@
+import useSignup from "@/hooks/useSignup";
+
 const Path = () => {
   return (
     <path
@@ -9,6 +11,7 @@ const Path = () => {
 };
 
 export default function Signup() {
+  const { handleGithubLogin } = useSignup();
   return (
     <div className="font-sans min-h-screen flex flex-col justify-center items-center bg-gray-100">
       <div className="text-center mb-8">
@@ -18,10 +21,10 @@ export default function Signup() {
 
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
-        {/**
-         * NEED TO HANDLE GITHUB LOGIN HERE
-         */}
-        <button className="bg-red-600 text-white w-full px-6 py-3 rounded-full font-bold hover:bg-red-700 transition duration-300 flex items-center justify-center">
+        <button
+          onClick={handleGithubLogin}
+          className="bg-red-600 text-white w-full px-6 py-3 rounded-full font-bold hover:bg-red-700 transition duration-300 flex items-center justify-center"
+        >
           <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <Path />
           </svg>
