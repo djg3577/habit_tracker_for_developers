@@ -1,6 +1,6 @@
 import { ActivityLogger } from "./ActivityLogger";
 import { ActivityTotals } from "./ActivityTotals";
-import { Heatmap } from "./HeatMap";
+import { Heatmap } from "./Heatmap";
 import { Leaderboard } from "./Leaderboard";
 
 export default function Activities() {
