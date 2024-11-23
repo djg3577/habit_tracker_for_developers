@@ -6,8 +6,11 @@ export function useActivityTotals() {
   const [activity_totals, setActivityTotals] = useState({});
 
   const fetchActivityTotals = async () => {
-    const response = await ActivitiesStore.getActivityTotals();
-    setActivityTotals(response.data.activity_totals);
+    const {
+      data: { activity_totals },
+    } = await ActivitiesStore.getActivityTotals();
+    if (!activity_totals) return;
+    setActivityTotals(activity_totals);
   };
 
   const convertToMinutes = (totalMinutes: number) => {
@@ -18,6 +21,7 @@ export function useActivityTotals() {
 
   const setup = useCallback(() => {
     fetchActivityTotals();
+    debugger;
   }, [User.state.user]);
 
   useEffect(() => {

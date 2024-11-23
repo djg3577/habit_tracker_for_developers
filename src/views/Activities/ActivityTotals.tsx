@@ -19,7 +19,7 @@ export function ActivityTotals() {
               <td className="py-2 pr-2">{activity}</td>
               <td className="py-2 truncate">{convertToMinutes(totalMinutes as number)}</td>
             </tr>
-          ))}
+          )) || ""}
         </tbody>
       </table>
     </div>
