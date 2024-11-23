@@ -21,7 +21,7 @@ export function useActivityTotals() {
 
   const setup = useCallback(() => {
     fetchActivityTotals();
-    debugger;
+
   }, [User.state.user]);
 
   useEffect(() => {

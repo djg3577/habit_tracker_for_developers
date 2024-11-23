@@ -13,9 +13,9 @@ function useHeatmap() {
       const {
         data: { activity_dates },
       } = await ActivitiesStore.getActivityDates();
-      debugger;
+
       if (!activity_dates) return;
-      
+
       setActivityDates(activity_dates);
     } catch (error) {
       console.error("Failed to fetch activity dates", error);
