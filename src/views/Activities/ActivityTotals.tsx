@@ -1,7 +1,7 @@
 import { useActivityTotals } from "@/hooks/useActivityTotals";
 
 export function ActivityTotals() {
-  const { activity_totals, convertMinutesToHoursAndMinutes } = useActivityTotals();
+  const { activity_totals, convertToMinutes } = useActivityTotals();
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -17,7 +17,7 @@ export function ActivityTotals() {
           {Object.entries(activity_totals).map(([activity, totalMinutes]) => (
             <tr key={activity} className="border-t">
               <td className="py-2 pr-2">{activity}</td>
-              <td className="py-2 truncate">{convertMinutesToHoursAndMinutes(totalMinutes as number)}</td>
+              <td className="py-2 truncate">{convertToMinutes(totalMinutes as number)}</td>
             </tr>
           ))}
         </tbody>

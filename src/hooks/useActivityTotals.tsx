@@ -10,7 +10,7 @@ export function useActivityTotals() {
     setActivityTotals(response.data.activity_totals);
   };
 
-  const convertMinutesToHoursAndMinutes = (totalMinutes: number) => {
+  const convertToMinutes = (totalMinutes: number) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
     return `${hours} hours ${minutes} minutes`;
@@ -24,5 +24,5 @@ export function useActivityTotals() {
     setup();
   }, []);
 
-  return { convertMinutesToHoursAndMinutes, activity_totals };
+  return { convertToMinutes, activity_totals };
 }

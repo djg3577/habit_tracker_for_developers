@@ -10,12 +10,6 @@ const getTokenType = () => {
   return localStorage.getItem("tokenType") || "jwt";
 };
 
-const clearToken = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("githubToken");
-  localStorage.removeItem("tokenType");
-};
-
 export const initialStore = {
   token: getToken() || "",
   tokenType: getTokenType() || "",
