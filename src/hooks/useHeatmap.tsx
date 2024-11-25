@@ -28,7 +28,7 @@ function useHeatmap() {
 
   useEffect(() => {
     setup();
-  }, []);
+  }, [User.state.user]);
 
   return activityDates;
 }

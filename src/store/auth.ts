@@ -10,6 +10,12 @@ const getTokenType = () => {
   return localStorage.getItem("tokenType") || "jwt";
 };
 
+export const clearToken = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("githubToken");
+  localStorage.removeItem("tokenType");
+};
+
 const setToken = (token: string, type = "jwt") => {
   if (type == "github") {
     localStorage.setItem("githubToken", token);
@@ -32,19 +38,37 @@ async function decodeJWT() {
 }
 
 async function loginWithGithub(code: string) {
-  const { data } = await auth.loginWithGithub(code);
-  setToken(data.token, "github");
-  state.token.set(data.token);
+  const {
+    data: {
+      response: [token, user],
+    },
+  } = await auth.loginWithGithub(code);
+  setToken(token, "github");
+  state.token.set(token);
   state.tokenType.set("github");
-  User.state.token.set(data.token);
+  User.state.token.set(token);
   User.state.tokenType.set("github");
-  User.state.user.set(data.user);
+  User.state.user.set(user);
+}
+
+function logout() {
+  clearToken();
+  state.token.set("");
+  User.state.token.set("");
+  User.state.tokenType.set("");
+  User.state.user.set({
+    code: 0,
+    id: 0,
+    email: "",
+    username: "",
+  });
 }
 
 const Auth = {
   state,
   decodeJWT,
   loginWithGithub,
+  logout
 };
 
 export default Auth;

@@ -1,16 +1,21 @@
 import "react-calendar-heatmap/dist/styles.css";
-import CalendarHeatmap from "react-calendar-heatmap";
+import CalendarHeatmap, { TooltipDataAttrs } from "react-calendar-heatmap";
 import "./heatmap.css";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import useHeatmap from "@/hooks/useHeatmap";
+
+interface ActivityDate {
+  date: string;
+  count: number;
+}
 
 export const Heatmap: React.FC = () => {
   const activityDates = useHeatmap();
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mt-8 truncate">
-      <h2 className="text-2xl font-bold text-red-600 mb-4 ">Activity Heatmap</h2>
+      <h2 className="text-2xl font-bold text-red-600 mb-4">Activity Heatmap</h2>
       <div className="heatmap-container truncate">
         <CalendarHeatmap
           startDate={new Date("2024-01-01")}
@@ -21,9 +26,21 @@ export const Heatmap: React.FC = () => {
             if (value.count > 5) return "color-scale-6";
             return `color-scale-${value.count}`;
           }}
+          tooltipDataAttrs={(value): any => {
+            const title =
+              !value || !value.date
+                ? "No activities"
+                : `${value.count} ${value.count === 1 ? "activity" : "activities"}`;
+
+            return {
+              "data-tooltip-id": "heatmap-tooltip",
+              "data-tooltip-content": title,
+              "aria-label": title,
+            };
+          }}
           showWeekdayLabels={true}
         />
-        <Tooltip id="heatmap-tooltip" />
+        <Tooltip id="heatmap-tooltip" place="top" />
       </div>
     </div>
   );

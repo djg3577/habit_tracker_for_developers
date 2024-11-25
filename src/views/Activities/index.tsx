@@ -2,7 +2,6 @@ import { HandleGitHubLogin } from "../Auth/HandleGithubLogin";
 import { ActivityLogger } from "./ActivityLogger";
 import { ActivityTotals } from "./ActivityTotals";
 import { Heatmap } from "./Heatmap";
-import { Leaderboard } from "./Leaderboard";
 
 export default function Activities() {
   return (
@@ -15,7 +14,6 @@ export default function Activities() {
           <ActivityTotals />
         </div>
         <Heatmap />
-        <Leaderboard />
         <div className="text-center mt-8"></div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: true, // Important for CORS with credentials
+  withCredentials: true, 
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -50,15 +50,15 @@ instance.interceptors.response.use(
     }
     return response;
   },
-  (error) => {
-    if (error?.response?.status === 401) {
-      handleLogout();
-    }
-    if (error?.response?.headers["x-token-expired"] === "true") {
-      handleLogout();
-    }
-    return Promise.reject(error);
-  }
+  // (error) => {
+  //   if (error?.response?.status === 401) {
+  //     handleLogout();
+  //   }
+  //   if (error?.response?.headers["x-token-expired"] === "true") {
+  //     handleLogout();
+  //   }
+  //   return Promise.reject(error);
+  // }
 );
 
 export default instance;

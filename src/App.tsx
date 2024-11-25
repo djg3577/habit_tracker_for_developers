@@ -9,6 +9,7 @@ function App() {
   const AuthState = useHookstate(Auth.state);
   useEffect(() => {
     const token = AuthState.token.get();
+
     if (token) {
       Auth.decodeJWT();
     }
